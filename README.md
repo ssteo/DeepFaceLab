@@ -2,19 +2,23 @@
 
 ![](doc/logo_cuda.jpg)![](doc/logo_opencl.jpg)![](doc/logo_keras.jpg)![](doc/logo_tensorflow.jpg)![](doc/logo_plaidml.jpg)
 
+#deepfakes #faceswap #face-swap #deep-learning #deeplearning #deep-neural-networks #deepface #deep-face-swap #fakeapp #fake-app #neural-networks #neural-nets
+
 ## **DeepFaceLab** is a tool that utilizes machine learning to replace faces in videos.
 
 If you like this software, please consider a donation.
 
-Goal: RTX 2080 TI
+GOAL: next DeepFacelab update.
 
 [Donate via Yandex.Money](https://money.yandex.ru/to/41001142318065)
 
-[Donate via Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KK5ZCH4JXWMQS&source=url)
-
+[Donate via Paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=lepersorium@gmail.com&lc=US&no_note=0&item_name=Support+DeepFaceLab&cn=&curency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted)
+                    
 [Donate via Alipay](https://i.loli.net/2019/01/13/5c3ae3829809f.jpg)
 
 bitcoin:31mPd6DxPCzbpCMZk4k1koWAbErSyqkAXr
+
+- ### [Gallery](doc/gallery/doc_gallery.md)
 
 - ### Manuals:
 
@@ -28,7 +32,7 @@ bitcoin:31mPd6DxPCzbpCMZk4k1koWAbErSyqkAXr
 
 [Google Colab fork](https://github.com/chervonij/DFL-Colab) by @chervonij
 
-[Linux fork](https://github.com/lbfs/DeepFaceLab_Linux) by @lbfs
+[Linux fork](https://github.com/lbfs/DeepFaceLab_Linux) by @lbfs - may be outdated
 
 - ### [Ready to work facesets](doc/doc_ready_to_work_facesets.md)
 
@@ -41,7 +45,5 @@ bitcoin:31mPd6DxPCzbpCMZk4k1koWAbErSyqkAXr
 [deepfakes (Chinese)](https://deepfakescn.com)
 
 [deepfakes (Chinese) (outdated) ](https://deepfakes.com.cn/)
-
-[mrdeepfakes (English)](https://mrdeepfakes.com/forums/)
 
 [reddit (English)](https://www.reddit.com/r/GifFakes/new/)

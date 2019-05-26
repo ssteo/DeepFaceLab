@@ -19,6 +19,10 @@ def trainerThread (s2c, c2s, args, device_args):
 
             training_data_src_path = Path( args.get('training_data_src_dir', '') )
             training_data_dst_path = Path( args.get('training_data_dst_dir', '') )
+            
+            pretraining_data_path = args.get('pretraining_data_dir', '')
+            pretraining_data_path = Path(pretraining_data_path) if pretraining_data_path is not None else None
+            
             model_path = Path( args.get('model_path', '') )
             model_name = args.get('model_name', '')
             save_interval_min = 15
@@ -40,6 +44,7 @@ def trainerThread (s2c, c2s, args, device_args):
                         model_path,
                         training_data_src_path=training_data_src_path,
                         training_data_dst_path=training_data_dst_path,
+                        pretraining_data_path=pretraining_data_path,
                         debug=debug,
                         device_args=device_args)
 
@@ -76,14 +81,23 @@ def trainerThread (s2c, c2s, args, device_args):
 
             last_save_time = time.time()
 
+            execute_programs = [ [x[0], x[1], time.time() ] for x in execute_programs ]
+
             for i in itertools.count(0,1):
                 if not debug:
                     cur_time = time.time()
 
                     for x in execute_programs:
-                        prog_time, prog = x
-                        if prog_time != 0 and (cur_time - start_time) >= prog_time:
+                        prog_time, prog, last_time = x
+                        exec_prog = False
+                        if prog_time > 0 and (cur_time - start_time) >= prog_time:
                             x[0] = 0
+                            exec_prog = True                            
+                        elif prog_time < 0 and (cur_time - last_time)  >= -prog_time:
+                            x[2] = cur_time                            
+                            exec_prog = True
+                            
+                        if exec_prog:
                             try:
                                 exec(prog)
                             except Exception as e:

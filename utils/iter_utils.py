@@ -31,8 +31,8 @@ class SubprocessGenerator(object):
         self.cs_queue = multiprocessing.Queue()
         self.p = None
 
-    def process_func(self):
-        self.generator_func = self.generator_func(self.user_param)
+    def process_func(self, user_param):
+        self.generator_func = self.generator_func(user_param)
         while True:
             while self.prefetch > -1:
                 try:
@@ -48,9 +48,16 @@ class SubprocessGenerator(object):
     def __iter__(self):
         return self
 
+    def __getstate__(self):
+        self_dict = self.__dict__.copy()
+        del self_dict['p']
+        return self_dict
+
     def __next__(self):
         if self.p == None:
-            self.p = multiprocessing.Process(target=self.process_func, args=())
+            user_param = self.user_param
+            self.user_param = None
+            self.p = multiprocessing.Process(target=self.process_func, args=(user_param,) )
             self.p.daemon = True
             self.p.start()
 
